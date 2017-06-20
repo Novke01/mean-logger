@@ -1,0 +1,28 @@
+{
+  "name": "node_server",
+  "version": "1.0.0",
+  "description": "Node backend server",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ADSS",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.15.2",
+    "connect": "^3.5.0",
+    "cors": "^2.8.1",
+    "crypto": "0.0.3",
+    "express": "^4.13.4",
+    "http": "0.0.0",
+    "jsonwebtoken": "^7.2.1",
+    "mongo-sanitize": "^1.0.0",
+    "mongodb": "^2.2.11",
+    "mongoose": "^4.5.9",
+    "nodemailer": "^2.6.4",
+    "nodesentry": "^0.1.1",
+    "serve-static": "^1.11.1",
+    "uuid": "^3.0.1"
+  }
+}

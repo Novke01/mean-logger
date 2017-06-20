@@ -1,0 +1,70 @@
+<div class="container" ng-init="evCtrl.initEvent()">
+    <div class="col-md-12">
+        <h2 style="text-align: center;">Event</h2>
+        <br>
+        <div class="row">
+            <div class="col-xs-4">
+                <label>Version </label>
+            </div>
+            <div class="col-xs-8">
+                <label ng-bind="event.event.version"></label>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-xs-4">
+                <label>Stack </label>
+            </div>
+            <div class="col-xs-8">
+                <label ng-bind="event.event.stack"></label>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-xs-4">
+                <label>Time </label>
+            </div>
+            <div class="col-xs-8">
+                <label ng-bind="event.event.time | date:'yyyy-MM-dd HH:mm:ss'"></label>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-xs-4">
+                <label>Fragment </label>
+            </div>
+            <div class="col-xs-8">
+                <label ng-bind="event.event.fragment"></label>
+            </div>
+        </div>
+        <br />
+        <h4 style="text-align: center;">Comments</h4>
+        <br />
+        <br />
+        <textarea rows="5" class="form-input" ng-model="event.newComment.text" style="width: 100%;"></textarea><br><br>
+        <button type="button" class="btn btn-success pull-right" ng-click="event.createComment()">Comment</button>
+        <br />
+        <br />
+        <br />
+        <!--Comments-->
+        <div ng-repeat="comment in event.comments">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="arrow">
+                        <div class="arrow-border"></div>
+                        <div class="arrow-left"></div>
+                    </div>
+                    <strong ng-bind="comment.user.email"></strong>
+                    <span class="text-muted" ng-bind="comment.createdAt | date: 'dd/MM/yyyy HH:mm'"></span>
+                </div>
+                <div class="panel-body">
+                    <span ng-bind="comment.text"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <ul uib-pager total-items="event.totalItems" items-per-page="event.pageSize" ng-model="event.currentPage" 
+                ng-change="event.pageChanged()"></ul>
+        </div>
+    </div>
+</div>

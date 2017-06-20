@@ -1,0 +1,23 @@
+<div class="container">
+    <h2>New Application</h2>
+    <form class="form" role="form" ng-submit="newApp.registerApp()">
+        <div class="form-group">
+            <input type="text" name="name" class="form-control" placeholder="App Name" ng-model="newApp.newApp.name" required />
+        </div>
+        <div class="form-group">
+            <input type="text" name="technology" class="form-control" placeholder="Technology" ng-model="newApp.newApp.technology" required />
+        </div>
+        <div class="form-group">
+            <input type="text" name="version" class="form-control" placeholder="Version" ng-model="newApp.newApp.version" required />
+        </div>
+        <div class="form-group">
+            <input type="url" name="repository" class="form-control" placeholder="Repository" ng-model="newApp.newApp.repository" required />
+        </div>
+        <div class="form-group">
+            <input type="url" name="dsn" class="form-control" placeholder="DSN" ng-model="newApp.newApp.dsn" required />
+        </div>
+        <div class="pull-right">
+            <button type="submit" id="register-btn" class="btn btn-primary">Register</button>
+        </div>
+    </form>
+</div>

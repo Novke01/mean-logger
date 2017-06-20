@@ -1,0 +1,93 @@
+<div class="container">
+    <h2><span ng-bind="app.app.name"></span></h2>
+    <!--App data-->
+    <div class="row">
+        <div class="col-xs-3">
+            <label>Id</label>
+        </div>
+        <div class="col-xs-9">
+            <span ng-bind="app.app._id"></span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-3">
+            <label>DSN</label>
+        </div>
+        <div class="col-xs-9">
+            <a ng-href="app.app.dsn"><span ng-bind="app.app.dsn"></span></a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-3">
+            <label>Application Key</label>
+        </div>
+        <div class="col-xs-9">
+            <span ng-bind="app.app.key"></span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-3">
+            <label>Technology</label>
+        </div>
+        <div class="col-xs-9">
+            <span ng-bind="app.app.technology"></span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-3">
+            <label>Current Version</label>
+        </div>
+        <div class="col-xs-9">
+            <span ng-bind="app.app.version"></span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-3">
+            <label>Repository</label>
+        </div>
+        <div class="col-xs-9">
+            <span ng-bind="app.app.repository"></span>
+        </div>
+    </div>
+    <hr />
+    <!--Events-->
+    <div class="row">
+        <h2>Events</h2>
+        <div ng-repeat="event in app.events">
+            <div class="clickable thumbnail" ui-sref="app.event({id: event._id})">
+                <span class="glyphicon glyphicon-cog ev-info"> Version: <span ng-bind="event.version"></span></span><br>
+                <span class="glyphicon glyphicon-time ev-info"> Time: <span>{{event.time | date:'yyyy-MM-dd HH:mm:ss'}}</span></span><br>
+                <span style="font-size: 80%">id=<span ng-bind="event._id"></span></span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        
+        <ul uib-pager total-items="app.totalItems" items-per-page="apps.pageSize" 
+            ng-model="apps.currentPage" ng-change="app.pageChanged()"></ul>
+    </div>
+    <hr />
+    <!--Users-->
+    <div ng-repeat="user in app.app.users">
+        <div class="row">
+            <div class="col-xs-12">
+                <span ng-bind="user.email"></span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <form role="form" class="form" ng-submit="app.addUser()">
+            <div class="col-xs-8">
+                <div class="form-group">
+                    <input type="email" class="form-control" placeholder="User's email" ng-model="app.newUser.email" />
+                </div>
+            </div>
+            <div class="col-xs-1">
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Add User</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    
+</div>

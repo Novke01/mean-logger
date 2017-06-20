@@ -1,0 +1,17 @@
+<html>
+    <head>
+        <title>Verify account</title>
+        <script>
+            function verify () {
+                var xhttp = new XMLHttpRequest();
+                var verificationToken = window.location.href.split('?')[1].split('=')[1];
+                xhttp.open('PUT', 'http://localhost:8081/api/users/verify?verificationToken=' + verificationToken, true);
+                xhttp.send();
+            }
+        </script>
+    </head>
+    <body>
+        <h2>Verify account</h2>
+        <p>Verify account by clicking <a href onclick="verify()">here</a>.</p>
+    </body>
+</html>

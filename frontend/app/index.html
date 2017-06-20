@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+  <!-- build:css(.) styles/vendor.css -->
+  <!-- bower:css -->
+  <link rel="stylesheet" href="bower_components/angular-toastr/dist/angular-toastr.css" />
+  <!-- endbower -->
+  <!-- endbuild -->
+  <!-- build:css(.tmp) styles/main.css -->
+  <link rel="stylesheet" href="styles/main.css" />
+  <!-- endbuild -->
+</head>
+
+<body ng-app="nodeWebApp">
+  <!--[if lte IE 8]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+  <!-- Add your site or application content here -->
+
+  <div ui-view="header"></div>
+  <div ui-view="content"></div>
+  <div ui-view="footer"></div>
+
+  <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+  <script>
+      !function (A, n, g, u, l, a, r) {
+      A.GoogleAnalyticsObject = l, A[l] = A[l] || function () {
+        (A[l].q = A[l].q || []).push(arguments)
+      }, A[l].l = +new Date, a = n.createElement(g),
+        r = n.getElementsByTagName(g)[0], a.src = u, r.parentNode.insertBefore(a, r)
+      } (window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+      ga('create', 'UA-XXXXX-X');
+      ga('send', 'pageview');
+    </script>
+<!--<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAyNnTuWRLjP2qUbsrMm_zxp2xOycSRT7c&libraries=places"></script>-->
+
+
+<!-- build:js(.) concat/scripts/vendor.js -->
+<!-- bower:js -->
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js"></script>
+<script src="bower_components/angular-animate/angular-animate.js"></script>
+<script src="bower_components/angular-cookies/angular-cookies.js"></script>
+<script src="bower_components/angular-messages/angular-messages.js"></script>
+<script src="bower_components/angular-resource/angular-resource.js"></script>
+<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="bower_components/angular-jwt/dist/angular-jwt.js"></script>
+<script src="bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
+<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<!-- endbower -->
+<!-- endbuild -->
+
+<!-- build:js({.tmp,app}) concat/scripts/scripts.js -->
+<script src="scripts/app.js"></script>
+<script src="scripts/app.config.js"></script>
+<script src="scripts/app.constants.js"></script>
+<script src="login-registration/login-registration.controller.js"></script>
+<script src="login-registration/login/login.controller.js"></script>
+<script src="login-registration/registration/registration.controller.js"></script>
+<script src="header/header.controller.js"></script>
+<script src="footer/footer.controller.js"></script>
+<script src="event/event.service.js"></script>
+
+<script src="application/application.service.js"></script>
+<script src="login-registration/login/login.service.js"></script>
+<script src="login-registration/registration/registration.service.js"></script>
+<script src="user/user.service.js"></script>
+<script src="authentication/authentication.interceptor.js"></script>
+<script src="authentication/refresh-token.interceptor.js"></script>
+<script src="authentication/authentication.run.js"></script>
+<script src="application/new-application/new-application.controller.js"></script>
+<script src="application/my-applications/my-applications.controller.js"></script>
+<script src="application/application/application.controller.js"></script>
+<script src="event/event.controller.js"></script>
+<script src="event/event.service.js"></script>
+<script src="event/comment.service.js"></script>
+<!-- endbuild -->
+</body>
+</html>
+

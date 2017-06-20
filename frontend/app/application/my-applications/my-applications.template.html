@@ -1,0 +1,13 @@
+<div class="container">
+    <h2>My Applications</h2>
+    <br />
+    <div ng-repeat="app in myApps.myApps">
+        <div class="row">
+            <div class="col-xs-12">
+                <a ui-sref="app.application({id: app._id})"><span style="font-size: 150%" ng-bind="app.name"></span></a>
+            </div>
+        </div>
+    </div>
+    <ul uib-pager total-items="myApps.totalItems" items-per-page="myApps.pageSize" 
+        ng-model="myApps.currentPage" ng-change="myApps.pageChanged()"></ul>
+</div>
