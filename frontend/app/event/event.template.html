@@ -41,7 +41,10 @@
         <h4 style="text-align: center;">Comments</h4>
         <br />
         <br />
-        <textarea rows="5" class="form-input" ng-model="event.newComment.text" style="width: 100%;"></textarea><br><br>
+        <div class="form-group">
+            <textarea rows="5" class="form-control" placeholder="Your Comment..." style="resize: vertical" ng-model="event.newComment.text"></textarea>
+        </div>
+        <br/><br/>
         <button type="button" class="btn btn-success pull-right" ng-click="event.createComment()">Comment</button>
         <br />
         <br />

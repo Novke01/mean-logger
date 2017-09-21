@@ -93,6 +93,7 @@
             }
 
             function getApplicationFail(e) {
+                toastr.error(e.data.message);
                 return $q.reject(e);
             }
 

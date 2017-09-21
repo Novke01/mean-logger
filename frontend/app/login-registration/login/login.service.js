@@ -36,7 +36,7 @@
             }
 
             function loginFail (e) {
-                toastr.error(e.message);
+                toastr.error(e.data.message);
                 return $q.reject(e);
             }
 
@@ -53,6 +53,7 @@
             }
 
             function refreshTokenFail (e) {
+                toastr.error(e.data.message);
                 return $q.reject(e);
             }
 

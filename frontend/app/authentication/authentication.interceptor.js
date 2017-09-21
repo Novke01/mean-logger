@@ -15,13 +15,10 @@
         };
 
         function request (config) {
-
             config.headers = config.headers || {};
-            
             if ($cookies.get('access-token')) {
                 config.headers['X-Auth-Token'] = $cookies.get('access-token');
             }
-
             return config;
         }
 

@@ -117,6 +117,7 @@ function loginUser (loginData, onSuccess, onError) {
 
     User.findOne({
         'email': loginData.email,
+        'verified': true
     })
     .exec(onUserFound);
 

@@ -22,6 +22,7 @@
             }
 
             function registerFail (e) {
+                toastr.error(e.data.message);
                 return $q.reject(e);
             }
 

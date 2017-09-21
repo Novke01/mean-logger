@@ -32,8 +32,12 @@ function createEvent (req, res, next) {
 
 	eventService.createEvent(applicationKey, event, onEventCreated, onError);
 
-	function onEventCreated (event) {
-		// TODO: Send email.
+	function onEventCreated (application) {
+		var emails = application.users.map(function (user) {
+            return user.email;
+		});
+		var event = application.events[0];
+		mailSender.sendEventNotification(emails, application.name, event.version, event.stack);
 		res.json(event);
 	}
 

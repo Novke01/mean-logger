@@ -35,7 +35,7 @@ function createEvent (applicationKey, event, onSuccess, onError) {
         new: true
     })
     .slice('events', 1)
-    .select('events')
+    .select('name users.email events')
     .exec(onEventCreated);
 
     function onEventCreated (error, application) {
@@ -44,7 +44,7 @@ function createEvent (applicationKey, event, onSuccess, onError) {
             message: 'Couldn\'t register new event.',
             code:    400
         });
-        onSuccess(application.events[0]);
+        onSuccess(application);
     }
 
 }
@@ -128,7 +128,7 @@ function getEvents(applicationId, pageNo, userId, onSuccess, onError) {
         if (error) return onError(error);
         onSuccess({
             page: events,
-            total: result[0].total,
+            total: (result.length > 0) ? result[0].total : 0,
             pageSize: pageSize
         });
     }
