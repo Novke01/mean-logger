@@ -14,7 +14,7 @@ var pageSize = 20;
 /**
  * Creates new event and saves it to DB.
  * 
- * @param {Object} event        - New event that will be created.
+ * @param {Object} event       - New event that will be created.
  * @param {Function} onSuccess - Callback function that is called on successful operation.
  * @param {Function} onError   - Callback function that is called on error.
  */
@@ -35,7 +35,7 @@ function createEvent (applicationKey, event, onSuccess, onError) {
         new: true
     })
     .slice('events', 1)
-    .select('name users.email events')
+    .select('name users.email events version')
     .exec(onEventCreated);
 
     function onEventCreated (error, application) {
@@ -44,7 +44,35 @@ function createEvent (applicationKey, event, onSuccess, onError) {
             message: 'Couldn\'t register new event.',
             code:    400
         });
-        onSuccess(application);
+        console.log(application);
+        var applicationVersionNumbers = application.version.split('.');
+        var applicationMajor = parseInt(applicationVersionNumbers[0]);
+        var applicationMinor = parseInt(applicationVersionNumbers[1]);
+        var applicationBuild = parseInt(applicationVersionNumbers[2]);
+        var eventVersionNumbers = event.version.split('.');
+        var eventMajor = parseInt(eventVersionNumbers[0]);
+        var eventMinor = parseInt(eventVersionNumbers[1]);
+        var eventBuild = parseInt(eventVersionNumbers[2]);
+        if (eventMajor > applicationMajor) {
+            application.version = event.version;
+        }
+        else if (eventMajor === applicationMajor) {
+            if (eventMinor > applicationMinor) {
+                application.version = event.version;
+            }
+            else if (eventMinor === applicationMinor) {
+                if (eventBuild > applicationBuild) {
+                    application.version = event.version;
+                }
+            }
+        }
+        application.save(onApplicationSaved);
+
+        function onApplicationSaved (error) {
+            if (error) return onError(error);
+            onSuccess(application);
+        }
+
     }
 
 }
